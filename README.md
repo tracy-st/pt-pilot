@@ -20,9 +20,19 @@ CV experiments in the pilot were conducted in three phases:
 
 Artworks were cropped from full-page derivatives using Photoshop Batch Processing (Automate > Crop and Straighten Photos).
 
-### Google Cloud Vision API
+### Tools
+
+#### Google Cloud Vision API
 
 Uses: OCR, Label annotation (secondary)
 
-### Clarifai API
+#### Clarifai API
 Uses: Label Annotation
+
+
+### Scripts
+
+#### get_images_from_open_Excel_column_A.wflow
+Apple Automator workflow
+To use: Paste list of filenames in Column A of an open Excel file. When prompted, select source floder and output folder
+
