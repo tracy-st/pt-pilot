@@ -51,7 +51,43 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>set theDirectory to quoted form of POSIX path of (choose folder with prompt "Select Search Directory")set theDestination to quoted form of POSIX path of (choose folder with prompt "Select Directory to Copy Files")tell application "Microsoft Excel"		tell active sheet				tell used range						set rc to count of rows					end tell				set theList to get value of range ("A1:A" &amp; rc) as list				repeat with theItem in theList						if contents of theItem is not {""} then								try										do shell script "cp  " &amp; theDirectory &amp; "/" &amp; theItem &amp; space &amp; theDestination									on error										do shell script "echo " &amp; theDirectory &amp; "/" &amp; theItem &amp; " does not exist &gt;&gt; ~/Desktop/error.txt"									end try							end if					end repeat			end tell	end tell</string>
+					<string>set theDirectory to quoted form of POSIX path of (choose folder with prompt "Select Search Directory")
+
+set theDestination to quoted form of POSIX path of (choose folder with prompt "Select Directory to Copy Files")
+
+tell application "Microsoft Excel"
+	
+	tell active sheet
+		
+		tell used range
+			
+			set rc to count of rows
+			
+		end tell
+		
+		set theList to get value of range ("A1:A" &amp; rc) as list
+		
+		repeat with theItem in theList
+			
+			if contents of theItem is not {""} then
+				
+				try
+					
+					do shell script "cp  " &amp; theDirectory &amp; "/" &amp; theItem &amp; space &amp; theDestination
+					
+				on error
+					
+					do shell script "echo " &amp; theDirectory &amp; "/" &amp; theItem &amp; " does not exist &gt;&gt; ~/Desktop/error.txt"
+					
+				end try
+				
+			end if
+			
+		end repeat
+		
+	end tell
+	
+end tell</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
